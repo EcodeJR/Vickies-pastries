@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicky</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <!--Icon link-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+
+<body>
+    <section class="home" id="home">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="orders.html">Order</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!--<i class="uil uil-sun" id="toggle"></i>-->
+        </nav>
+
+        <div class="home-content">
+            <div class="home-text">
+                <h1>Chop <span>Paradise</span></h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, porro voluptatibus. Ullam ducimus atque cum illum esse porro perspiciatis eius quis quisquam voluptate nisi, ipsum quidem architecto dicta culpa! Quos.</p>
+                <a href="orders.html" class="order-btn"><i class="uil uil-angle-right"></i></a>
+            </div>
+            <div class="img-slider">
+                <div class="carousel">
+                    <div class="carousel_inner">
+                        <div class="carousel_item carousel_item__active">
+                            <img src="./images/image1.jpg" alt="" class="carousel_img">
+                        </div>
+                        <div class="carousel_item">
+                            <img src="./images/image2.jpg" alt="" class="carousel_img">
+                        </div>
+                        <div class="carousel_item">
+                            <img src="./images/image3.jpg" alt="" class="carousel_img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/script/main.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            autoSlide();
+        })
+
+        function autoSlide() {
+            setInterval(() => {
+                slide(getItemActiveIndex() + 1);
+            }, 2000); // slide speed = 2s
+        }
+
+        function slide(toIndex) {
+            const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
+            const itemActive = document.querySelector(".carousel_item__active");
+
+            // check if toIndex exceeds the number of carousel items
+            if (toIndex >= itemsArray.length) {
+                toIndex = 0;
+            }
+
+            const newItemActive = itemsArray[toIndex];
+
+            // start transition
+            newItemActive.classList.add("carousel_item__pos_next");
+            setTimeout(() => {
+                newItemActive.classList.add("carousel_item__next");
+                itemActive.classList.add("carousel_item__next");
+            }, 20);
+
+            // remove all transition class and switch active class
+            newItemActive.addEventListener("transitionend", () => {
+                itemActive.className = "carousel_item";
+                newItemActive.className = "carousel_item carousel_item__active";
+            }, {
+                once: true
+            });
+        }
+
+        function getItemActiveIndex() {
+            const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
+            const itemActive = document.querySelector(".carousel_item__active");
+            const itemActiveIndex = itemsArray.indexOf(itemActive);
+            return itemActiveIndex;
+        }
+    </script>
+</body>
+
+</html>
