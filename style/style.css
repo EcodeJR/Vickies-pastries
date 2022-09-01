@@ -151,6 +151,7 @@ ul li a:hover {
     width: 50%;
     height: 100%;
     display: flex;
+    margin-bottom: 10px;
     align-items: center;
     justify-content: center;
 }
@@ -220,7 +221,7 @@ ul li a:hover {
         padding: 20px 10px;
     }
     .home {
-        height: 100vh;
+        min-height: 100vh;
     }
     .home-content {
         height: auto;
