@@ -302,7 +302,7 @@ ul li a:hover {
 
 @media only screen and (max-width:768px) {
     .about {
-        height: auto;
+        min-height: 100vh;
     }
     .about-content {
         height: auto;
