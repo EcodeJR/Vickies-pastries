@@ -221,7 +221,7 @@ ul li a:hover {
         padding: 20px 10px;
     }
     .home {
-        min-height: 100vh;
+        height: auto;
     }
     .home-content {
         height: auto;
