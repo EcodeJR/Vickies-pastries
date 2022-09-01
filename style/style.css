@@ -252,6 +252,7 @@ ul li a:hover {
 .about {
     height: 100vh;
     width: 100%;
+    padding: 20px;
     background-color: var(--lightBg);
 }
 
@@ -357,7 +358,7 @@ ul li a:hover {
 .cards img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: fill;
     transition: all .6s ease-in-out;
 }
 
